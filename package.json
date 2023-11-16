@@ -1,0 +1,27 @@
+{
+  "name": "web-click-bot-with-proxy",
+  "version": "1.0.0",
+  "description": "The program locates a designated web link and clicks on it within Google web search. It then stays on the resulting website and carries out pre-defined actions before changing the IP and proxy and repeating the process.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antoni-Pawlak/web-click-bot-with-proxy.git"
+  },
+  "keywords": [
+    "bot",
+    "javascript"
+  ],
+  "author": "Antoni Pawlak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Antoni-Pawlak/web-click-bot-with-proxy/issues"
+  },
+  "homepage": "https://github.com/Antoni-Pawlak/web-click-bot-with-proxy#readme",
+  "dependencies": {
+    "faker": "^6.6.6",
+    "selenium-webdriver": "^4.15.0"
+  }
+}
