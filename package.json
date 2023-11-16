@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Antoni-Pawlak/web-click-bot-with-proxy#readme",
   "dependencies": {
     "faker": "^6.6.6",
+    "random-item": "^4.0.1",
     "selenium-webdriver": "^4.15.0"
   }
 }

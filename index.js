@@ -10,10 +10,29 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+
+// Define a list of proxies with authentication credentials
+const proxies = ["username:password@192.168.0.1:8080", "username:password@172.20.10.5:3128", "username:password@10.10.1.1:8118"];
+
+// Define a function to randomly rotate the IPs and switch proxies
+async function rotate_ip_and_proxy() {
+    const proxy = await import('random-item').then((module) => {
+        return module.default(proxies);
+    });
+
+    const chrome_options = new chrome.Options();
+    chrome_options.addArguments(`--proxy-server=http://${proxy}`);
+    chrome_options.headless();
+    const driver = new webdriver.Builder().forBrowser('chrome').withCapabilities(webdriver.Capabilities.chrome()).setChromeOptions(chrome_options).build();
+    return driver;
+}
+
+
 async function generateDriver() {
     // Chromium options
     const options = new chrome.Options()
-        .addArguments(`user-agent=${userAgent}`)
+        .addArguments(`=${userAgent}`)
         .excludeSwitches('enable-automation'); // Optional: Exclude automation flag
 
     // Create a new WebDriver with options
