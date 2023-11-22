@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: KeywordAPI
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://Keywordapi-iay8r.ondigitalocean.app/api/v1
+  variables: {}
+paths:
+  /Keyword:
+    get:
+      tags:
+      - Keyword
+      summary: GetAllKeyword
+      operationId: GetAllKeyword
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    post:
+      tags:
+      - Keyword
+      summary: CreateKeyword
+      operationId: CreateKeyword
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/PROD_URLKeyword_Request'
+              - example:
+                  date: 2023-05-05
+                  airline: singapore airline
+                  departure: mumbai
+                  arrival: singapore
+                  price: 14500
+            example:
+              date: 2023-05-05
+              airline: singapore airline
+              departure: mumbai
+              arrival: singapore
+              price: 14500
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /Keyword/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    patch:
+      tags:
+      - Keyword
+      summary: UpdateFlight
+      operationId: UpdateFlight
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/PROD_URLKeyword645512d5d8f00bea56b3b0d1_Request'
+              - example:
+                  airline: japan airline
+            example:
+              airline: japan airline
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+      - Keyword
+      summary: DeleteFlight
+      operationId: DeleteFlight
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    PROD_URLKeyword_Request:
+      title: PROD_URLKeyword_Request
+      required:
+      - date
+      - airline
+      - departure
+      - arrival
+      - price
+      type: object
+      properties:
+        date:
+          type: string
+        airline:
+          type: string
+        departure:
+          type: string
+        arrival:
+          type: string
+        price:
+          type: integer
+          format: int32
+      example:
+        date: 2023-05-05
+        airline: singapore airline
+        departure: mumbai
+        arrival: singapore
+        price: 14500
+    PROD_URLKeyword645512d5d8f00bea56b3b0d1_Request:
+      title: PROD_URLKeyword645512d5d8f00bea56b3b0d1_Request
+      required:
+      - airline
+      type: object
+      properties:
+        airline:
+          type: string
+      example:
+        airline: japan airline
+tags:
+
+- name: Keyword
+  description: ''

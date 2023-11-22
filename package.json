@@ -1,28 +1,28 @@
 {
-  "name": "web-click-bot-with-proxy",
+  "name": "web-click-bot",
   "version": "1.0.0",
-  "description": "The program locates a designated web link and clicks on it within Google web search. It then stays on the resulting website and carries out pre-defined actions before changing the IP and proxy and repeating the process.",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Antoni-Pawlak/web-click-bot-with-proxy.git"
-  },
-  "keywords": [
-    "bot",
-    "javascript"
-  ],
-  "author": "Antoni Pawlak",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Antoni-Pawlak/web-click-bot-with-proxy/issues"
-  },
-  "homepage": "https://github.com/Antoni-Pawlak/web-click-bot-with-proxy#readme",
   "dependencies": {
-    "faker": "^6.6.6",
-    "random-item": "^4.0.1",
-    "selenium-webdriver": "^4.15.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.1.5",
+    "mongodb": "^5.2.0",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "selenium-webdriver": "^4.15.0",
+    "swagger-ui-express": "^4.6.3",
+    "xss-clean": "^0.1.1",
+    "yamljs": "^0.3.0"
   }
 }
