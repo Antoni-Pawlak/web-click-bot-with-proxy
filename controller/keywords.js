@@ -116,9 +116,9 @@ class Bot {
 }
 
 
+const bot = new Bot();
 
 const startBot = async (req, res) => {
-    const bot = new Bot();
     try {
         bot.startBot()
         res.status(201).json({ 'status': 'started' })
@@ -129,7 +129,6 @@ const startBot = async (req, res) => {
 }
 
 const stopBot = async (req, res) => {
-    const bot = new Bot();
     try {
         bot.stopBot()
         res.status(201).json({ 'status': 'stopped' })
