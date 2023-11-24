@@ -49,7 +49,7 @@ class Bot {
         console.log(`The time from now to tomorrow's 12:00 am is ${timeToTomorrowTwelveAM} milliseconds`);
         console.log(`waiting ${parseInt(timeToTomorrowTwelveAM / incompleteKeywords.length )} milliseconds...`);
 
-        await new Promise(resolve => setTimeout(resolve, parseInt(timeToTomorrowTwelveAM / incompleteKeywords.length )));
+        //await new Promise(resolve => setTimeout(resolve, parseInt(timeToTomorrowTwelveAM / incompleteKeywords.length )));
 
         const totalAmountSum = incompleteKeywords.reduce((acc, keyword) => acc + keyword.amount, 0);
         let random = Math.floor(Math.random() * totalAmountSum);
@@ -118,11 +118,24 @@ class Bot {
                 await inputField.sendKeys(selectedKeyword.keyword, webdriver.Key.RETURN);
 
                 // Wait for search results to load and click "leber-ratgeber" link
-                await driver.wait(
-                    webdriver.until.elementLocated(webdriver.By.partialLinkText(selectedKeyword.link)),
-                    15000
-                );
-                const linkElem = await driver.findElement(webdriver.By.partialLinkText(selectedKeyword.link));
+                try {
+                    await driver.wait(
+                      webdriver.until.elementLocated(webdriver.By.partialLinkText(selectedKeyword.link)),
+                      15000
+                    );
+                    const linkElem = await driver.findElement(webdriver.By.partialLinkText(selectedKeyword.link));
+                    // Do something with the link element...
+                  } catch (error) {
+                    if (error.name === 'TimeoutError') {
+                      console.error('Error: Timed out waiting for element to be located');
+                      // Handle the error gracefully...
+                    } else {
+                      // Handle other types of errors...
+                      throw error;
+                    }
+                    await driver.quit();
+                    continue;
+                  }
                 // Use the `sendKeys()` method on the link element to open it in a new tab via `Control` + `click`
                 const controlClick = driver.actions({ bridge: true });
                 await controlClick
