@@ -22,6 +22,8 @@
     "nodemon": "^2.0.22",
     "selenium-webdriver": "^4.15.0",
     "swagger-ui-express": "^4.6.3",
+    "user-agent": "^1.0.4",
+    "user-agents": "^1.1.33",
     "xss-clean": "^0.1.1",
     "yamljs": "^0.3.0"
   }
